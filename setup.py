@@ -7,4 +7,3 @@ setup(name='publitio',
       author='enn michael',
       url='https://github.com/ennmichael/publitio-python-sdk',
       download_url='https://github.com/ennmichael/publitio-python-sdk/archive/1.0.tar.gz',
-      keywords=['publitio'])
