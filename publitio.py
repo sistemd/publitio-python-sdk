@@ -20,7 +20,7 @@ class UnknownStatusCode(BaseException):
 class TransformationFailed(BaseException):
 
     def __init__(self, reason):
-        super().__init__('File transformation failed. Resonse: ' + reason)
+        super().__init__('File transformation failed. Response: ' + reason)
 
 
 def generate_nonce():
@@ -70,9 +70,6 @@ rest_delete = functools.partial(rest_request, requests.delete)
 
 
 class PublitioAPI:
-    '''A class to communicate with the publitio API.
-    '''
-
     API_URL = 'https://api.publit.io/v1/'
     MEDIA_URL = 'https://media.publit.io/'
 
@@ -191,8 +188,6 @@ class PublitioAPI:
         return self.api_delete('players/adtags/delete/' + adtag_id)
 
     def create_watermark(self, file, **params):
-        '''Make sure the file is opened for binary reading.
-        '''
         return self.api_post('watermarks/create',
                              payload=params,
                              data={'file': file})
@@ -223,8 +218,6 @@ class PublitioAPI:
         return PublitioAPI.MEDIA_URL + 'file/' + options_url + filename
 
     def transformed(self, filename, *, extension, **params):
-        '''Pass in parameters like: w=33, h=45
-        '''
         url = PublitioAPI.transformation_url(filename,
                                              extension=extension,
                                              **params)
@@ -233,15 +226,3 @@ class PublitioAPI:
         if not res.ok:
             raise TransformationFailed(res.reason)
         return res.content
-
-
-EXAMPLE_FILE_ID = 'cq4ReLGx'
-
-
-if __name__ == '__main__':
-    from pprint import pprint
-
-    publitio_api = PublitioAPI(key='ktuZkDrpfA3M7t3txAp0',
-                               secret='RWnZpAdRa8olrNaDjsZp1Q5VbWgznwy8')
-
-    pprint(publitio_api.transformed(EXAMPLE_FILE_ID, extension='png')[:10])
