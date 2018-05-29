@@ -9,18 +9,19 @@ publitio_api = PublitioAPI(key='xxxx', secret='yyyy')
 
 For the remaning code samples, these two lines of code will be implied.
 
-The methods used for communicating with the api - `create_file`, `list_files` etc. all return parsed json responses, as if `json.loads` was used on the response content. The only exception to this is the `transformed` method, which returns `bytes`. In all methods, the supported keyword parameters are exactly the same as in the publitio docs: https://publit.io/docs. You should probably look into that documentation before reading this.
+The methods used for communicating with the api - `create_file`, `list_files` etc., all return parsed json responses, as if `json.loads` was used on the response content. The only exception to this is the `transformed` method, which returns `bytes`. In all methods, the supported keyword parameters are exactly the same as in the publitio docs: https://publit.io/docs. You should probably look into that documentation before reading this.
 
 
 ##Exceptions
-
+ - `UnknownStatusCode` - raised when the server responds to a request with an unknown status code.
+ - `TransformationFailed` - raised when the server fails to perform a transformation, i.e. when `publitio_api.transform` fails.
 
 ##Transforming files
 ```
 publitio_api.transform('filename.jpeg', extension='png', w=300, h=300)
 ```
 
-This would return the `bytes` of the file named `filename`, now transcoded into a png, with dimensions 300x300. The supported parameters are the same as in https://publit.io/docs/#url-based-transformations. For example, the above invocation makes a call to this URL:
+This would return the `bytes` of the file named `filename`, now transcoded into a PNG, with dimensions 300x300. The supported parameters are the same as in https://publit.io/docs/#url-based-transformations. For example, the above invocation makes a call to this URL:
 ```
 https://media.publit.io/file/w_300,h_300/filename.png
 ```
