@@ -1,0 +1,5 @@
+/files/create uses form-encoded files which is probably either base64 (I don't think so),
+but more likely just binary encoding.
+
+Updating a file has not been working out for some reason.
+
