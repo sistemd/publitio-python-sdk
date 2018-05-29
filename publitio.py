@@ -220,7 +220,7 @@ class PublitioAPI:
         filename = replace_extension(filename, extension)
         options = PublitioAPI.transformation_options(**params)
         options_url = options + '/' if options else ''
-        return PublitioAPI.MEDIA_URL + 'file/' + options_path + filename
+        return PublitioAPI.MEDIA_URL + 'file/' + options_url + filename
 
     def transformed(self, filename, *, extension, **params):
         '''Pass in parameters like: w=33, h=45
@@ -244,4 +244,4 @@ if __name__ == '__main__':
     publitio_api = PublitioAPI(key='ktuZkDrpfA3M7t3txAp0',
                                secret='RWnZpAdRa8olrNaDjsZp1Q5VbWgznwy8')
 
-    pprint(publitio_api.list_files(offset=1))
+    pprint(publitio_api.transformed(EXAMPLE_FILE_ID, extension='png')[:10])
