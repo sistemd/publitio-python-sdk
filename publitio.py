@@ -10,9 +10,6 @@ from datetime import datetime
 import requests
 
 
-# TODO Use git.
-
-
 __all__ = ['PublitioAPI', 'AsyncPublitioAPI']
 
 
