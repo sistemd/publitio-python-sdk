@@ -1,5 +1,11 @@
 # Publitio Python SDK
 
+Installation:
+
+```
+pip install publitio
+```
+
 To use the Python SDK:
 
 ```

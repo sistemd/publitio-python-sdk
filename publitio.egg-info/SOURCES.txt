@@ -6,4 +6,5 @@ publitio/publitio.py
 publitio.egg-info/PKG-INFO
 publitio.egg-info/SOURCES.txt
 publitio.egg-info/dependency_links.txt
+publitio.egg-info/requires.txt
 publitio.egg-info/top_level.txt
