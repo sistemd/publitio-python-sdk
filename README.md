@@ -20,7 +20,7 @@ The methods used for communicating with the api - `create_file`, `list_files` et
 
 ## Exceptions
  - `UnknownStatusCode` - raised when the server responds to a request with an unknown status code.
- - `TransformationFailed` - raised when the server fails to perform a transformation, i.e. when `publitio_api.transform` fails.
+ - `TransformationFailed` - raised when the server fails to perform a transformation, i.e. when `publitio_api.transformed` fails.
 
 ## Transforming files
 ```
