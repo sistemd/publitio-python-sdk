@@ -170,7 +170,7 @@ publitio_api.delete_adtag(adtag_id)
 
 ## Creating a watermark
 ```python
-publitio_api.create_watermark(self, file=open('path/to/file', rb), title='whatever')
+publitio_api.create_watermark(self, file=open('path/to/file', 'rb'), title='whatever')
 ```
 Again, the file needs to be opened for binary reading. This function will not close the file.
 
