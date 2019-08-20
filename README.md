@@ -13,7 +13,7 @@ from publitio import PublitioAPI
 publitio_api = PublitioAPI(key='xxxx', secret='yyyy')
 ```
 
-For the remaning code samples, these two lines of code will be implied.
+For the remaining code samples, these two lines of code will be implied.
 
 The methods used for communicating with the api - `create_file`, `list_files` etc., all return parsed json responses, as if `json.loads` was used on the response content. The only exception to this is the `transformed` method, which returns `bytes`. In all methods, the supported keyword parameters are exactly the same as in the publitio docs: https://publit.io/docs. You should probably look into that documentation before reading this.
 
