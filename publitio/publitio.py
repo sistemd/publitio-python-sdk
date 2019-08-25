@@ -1,4 +1,4 @@
-import random
+import secrets
 import hashlib
 import calendar
 import functools
@@ -7,14 +7,17 @@ from datetime import datetime
 
 import requests
 
-
 __all__ = ['UnknownStatusCode', 'TransformationFailed', 'PublitioAPI']
+
+
+VERSION = '1.0.1'
 
 
 class UnknownStatusCode(BaseException):
 
     def __init__(self, status_code):
-        super().__init__('API call returned unknown status code {}.'.format(status_code))
+        super().__init__(
+            'API call returned unknown status code {}.'.format(status_code))
 
 
 class TransformationFailed(BaseException):
@@ -24,7 +27,8 @@ class TransformationFailed(BaseException):
 
 
 def generate_nonce():
-    return str(random.randrange(10000000, 99999999))
+    x = secrets.randbelow(100000000 - 10000000) + 10000000
+    return str(x)
 
 
 def current_unix_timestamp():
@@ -59,6 +63,9 @@ def filename_without_extension(filename):
 
 
 def replace_extension(filename, new_extension):
+    if new_extension is None:
+        return filename
+
     return '{}.{}'.format(filename_without_extension(filename),
                           new_extension)
 
@@ -92,7 +99,8 @@ class PublitioAPI:
             'api_key': self.key,
             'api_timestamp': timestamp,
             'api_nonce': nonce,
-            'api_signature': signature
+            'api_signature': signature,
+            'api_kit': 'python3-' + VERSION
         }
 
     def full_payload(self, user_payload):
@@ -120,7 +128,6 @@ class PublitioAPI:
     def api_delete(self, path):
         return rest_delete(PublitioAPI.API_URL + path,
                            params=self.api_payload())
-
 
     def create_file(self, file, **params):
         return self.api_post('files/create',
@@ -205,19 +212,18 @@ class PublitioAPI:
     def delete_watermark(self, watermark_id):
         return self.api_delete('watermarks/delete/' + watermark_id)
 
-
     @staticmethod
     def transformation_options(**params):
         return ','.join('{}_{}'.format(k, v) for k, v in params.items())
 
     @staticmethod
-    def transformation_url(filename, *, extension, **params):
+    def transformation_url(filename, *, extension=None, **params):
         filename = replace_extension(filename, extension)
         options = PublitioAPI.transformation_options(**params)
         options_url = options + '/' if options else ''
         return PublitioAPI.MEDIA_URL + 'file/' + options_url + filename
 
-    def transformed(self, filename, *, extension, **params):
+    def transformed(self, filename, *, extension=None, **params):
         url = PublitioAPI.transformation_url(filename,
                                              extension=extension,
                                              **params)
