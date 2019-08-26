@@ -4,6 +4,8 @@
         "adtags",
         "functools",
         "publitio",
-        "timegm"
-    ]
+        "timegm",
+        "transcoded"
+    ],
+    "restructuredtext.confPath": "${workspaceFolder}"
 }

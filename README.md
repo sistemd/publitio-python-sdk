@@ -10,7 +10,7 @@ To use the Python SDK:
 
 ```python
 from publitio import PublitioAPI
-publitio_api = PublitioAPI(key='xxxx', secret='yyyy')
+publitio_api = PublitioAPI(key='<API key>', secret='<API secret>')
 ```
 
 For the remaining code samples, these two lines of code will be implied.
@@ -21,18 +21,28 @@ The methods used for communicating with the api - `create_file`, `list_files` et
 
 - `UnknownStatusCode` - raised when the server responds to a request with an unknown status code.
 - `TransformationFailed` - raised when the server fails to perform a transformation, i.e. when `publitio_api.transformed` fails.
+- `BadJSON` - raised when the server responds with invalid JSON. This may be due to an internal server error.
 
 ## Transforming files
 
 ```python
 publitio_api.transformed('filename.jpeg', extension='png', w=300, h=300)
-publitio_api.transformed('filename.jpeg', w=300, h=300) # If you don't wish to change the extension
+# If you don't wish to change the extension, you can omit it:
+publitio_api.transformed('filename.jpeg', w=300, h=300)
 ```
 
 This would return the `bytes` of the file named `filename`, now transcoded into a PNG, with dimensions 300x300. The `extension` parameter is optional. The supported parameters are the same as [here](https://publit.io/docs/#url-based-transformations). For example, the above invocation makes a call to this URL:
 
 ```url
 https://media.publit.io/file/w_300,h_300/filename.png
+```
+
+## Documentation
+
+You can view documentation from the source code docstrings using `pydoc`:
+
+```bash
+pydoc3 publitio
 ```
 
 ## Creating files
@@ -51,6 +61,15 @@ with open('path/to/file', 'rb') as f:
     publitio_api.create_file(file=f,
                              title='My title',
                              description='My description')
+```
+
+If you wish to upload the file from a remote URL, pass the `file_url` keyword parameter instead of
+the optional file parameter. For example:
+
+```python
+publitio_api.create_file(file_url='https://example.com/image.png',
+                         title='My title',
+                         description='My description')
 ```
 
 ## Listing files
@@ -92,7 +111,7 @@ publitio_api.get_file_player(file_id, player='myplayerid', ...)
 ## Creating file versions
 
 ```python
-publitio_api.create_version(file_id, extension='.webm', ...)
+publitio_api.create_version(file_id, extension='webm', ...)
 ```
 
 ## Listing versions
