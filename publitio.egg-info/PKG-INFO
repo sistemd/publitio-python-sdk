@@ -1,11 +1,13 @@
-Metadata-Version: 1.0
+Metadata-Version: 1.1
 Name: publitio
-Version: 1.2
+Version: 1.3.0
 Summary: A Python SDK for https://publit.io
 Home-page: https://github.com/ennmichael/publitio-python-sdk
-Author: enn michael
+Author: Enn Michael
 Author-email: enntheprogrammer@gmail.com
 License: UNKNOWN
-Description: For more info, docs, and examples, visit https://github.com/ennmichael/publitio-python-sdk and https://publit.io/docs/ .
+Description: UNKNOWN
 Keywords: publitio
 Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent

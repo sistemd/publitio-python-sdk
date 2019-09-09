@@ -3,7 +3,7 @@ import setuptools
 setuptools.setup(
     name='publitio',
     packages=setuptools.find_packages(),
-    version='1.1.0',
+    version='1.3.0',
     description='A Python SDK for https://publit.io',
     author='Enn Michael',
     author_email='enntheprogrammer@gmail.com',

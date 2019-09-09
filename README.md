@@ -3,8 +3,10 @@
 Installation:
 
 ```bash
-pip install publitio
+pip3 install publitio
 ```
+
+This SDK works for Python 3.6 and up.
 
 To use the Python SDK:
 

@@ -2,7 +2,6 @@ README.md
 setup.cfg
 setup.py
 publitio/__init__.py
-publitio/publitio.py
 publitio.egg-info/PKG-INFO
 publitio.egg-info/SOURCES.txt
 publitio.egg-info/dependency_links.txt
