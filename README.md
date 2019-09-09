@@ -77,13 +77,13 @@ publitio_api.create_file(file_url='https://example.com/image.png',
 ## Listing files
 
 ```python
-publitio_api.list_files(offset=1, ...)
+publitio_api.list_files(offset=1)
 ```
 
 It's also OK to provide strings as parameters when numbers seem logical. So, also valid:
 
 ```python
-publitio_api.list_files(offset='1', ...)
+publitio_api.list_files(offset='1')
 ```
 
 ## Showing files
@@ -95,7 +95,7 @@ publitio_api.show_file(file_id)
 ## Updating files
 
 ```python
-publitio_api.update_file(file_id, title='A better title', ...)
+publitio_api.update_file(file_id, title='A better title')
 ```
 
 ## Deleting files
@@ -107,13 +107,13 @@ publitio_api.delete_file(file_id)
 ## Getting a file player
 
 ```python
-publitio_api.get_file_player(file_id, player='myplayerid', ...)
+publitio_api.get_file_player(file_id, player='myplayerid')
 ```
 
 ## Creating file versions
 
 ```python
-publitio_api.create_version(file_id, extension='webm', ...)
+publitio_api.create_version(file_id, extension='webm')
 ```
 
 ## Listing versions
@@ -128,16 +128,64 @@ publitio_api.list_versions(file_id, limit=3)  # Or limit='3'
 publitio_api.show_version(version_id)
 ```
 
+## Updating versions
+
+```python
+publitio_api.update_version(version_id)
+```
+
+## Reconverting versions
+
+```python
+publitio_api.reconvert_version(version_id)
+```
+
 ## Deleting versions
 
 ```python
 publitio_api.delete_version(version_id)
 ```
 
+## Creating folders
+
+```python
+publitio_api.create_folder(name='myfolder')
+```
+
+## Listing folders
+
+```python
+publitio_api.list_folders(limit=10, order='name')
+```
+
+## Showing folders
+
+```python
+publitio_api.show_folder(folder_id)
+```
+
+## Updating folders
+
+```python
+publitio_api.update_folder(folder_id, name='mynewname')
+```
+
+## Deleting folders
+
+```python
+publitio_api.delete_folder(folder_id)
+```
+
+## Folders tree
+
+```python
+publitio_api.folders_tree()
+```
+
 ## Creating players
 
 ```python
-publitio_api.create_player(name='whatever', ...)
+publitio_api.create_player(name='whatever')
 ```
 
 ## Listing players
@@ -152,10 +200,10 @@ publitio_api.list_players()
 publitio_api.show_player(player_id)
 ```
 
-## Updaing players
+## Updating players
 
 ```python
-publitio_api.update_player(player_id, skin='green', ...)
+publitio_api.update_player(player_id, skin='green')
 ```
 
 ## Deleting players
@@ -217,7 +265,7 @@ publitio_api.show_watermark(watermark_id)
 ## Updating watermarks
 
 ```python
-publitio_api.update_watermark(watermark_id, position='left', ...)
+publitio_api.update_watermark(watermark_id, position='left')
 ```
 
 ## Deleting watermarks
