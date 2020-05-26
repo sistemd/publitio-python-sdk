@@ -89,61 +89,61 @@ publitio_api.list_files(offset='1')
 ## Showing files
 
 ```python
-publitio_api.show_file(file_id)
+publitio_api.show_file('file_id')
 ```
 
 ## Updating files
 
 ```python
-publitio_api.update_file(file_id, title='A better title')
+publitio_api.update_file('file_id', title='A better title')
 ```
 
 ## Deleting files
 
 ```python
-publitio_api.delete_file(file_id)
+publitio_api.delete_file('file_id')
 ```
 
 ## Getting a file player
 
 ```python
-publitio_api.get_file_player(file_id, player='myplayerid')
+publitio_api.get_file_player('file_id', player='myplayerid')
 ```
 
 ## Creating file versions
 
 ```python
-publitio_api.create_version(file_id, extension='webm')
+publitio_api.create_version('file_id', extension='webm')
 ```
 
 ## Listing versions
 
 ```python
-publitio_api.list_versions(file_id, limit=3)  # Or limit='3'
+publitio_api.list_versions('file_id', limit=3)  # Or limit='3'
 ```
 
 ## Showing versions
 
 ```python
-publitio_api.show_version(version_id)
+publitio_api.show_version('version_id')
 ```
 
 ## Updating versions
 
 ```python
-publitio_api.update_version(version_id)
+publitio_api.update_version('version_id')
 ```
 
 ## Reconverting versions
 
 ```python
-publitio_api.reconvert_version(version_id)
+publitio_api.reconvert_version('version_id')
 ```
 
 ## Deleting versions
 
 ```python
-publitio_api.delete_version(version_id)
+publitio_api.delete_version('version_id')
 ```
 
 ## Creating folders
@@ -161,19 +161,19 @@ publitio_api.list_folders(limit=10, order='name')
 ## Showing folders
 
 ```python
-publitio_api.show_folder(folder_id)
+publitio_api.show_folder('folder_id')
 ```
 
 ## Updating folders
 
 ```python
-publitio_api.update_folder(folder_id, name='mynewname')
+publitio_api.update_folder('folder_id', name='mynewname')
 ```
 
 ## Deleting folders
 
 ```python
-publitio_api.delete_folder(folder_id)
+publitio_api.delete_folder('folder_id')
 ```
 
 ## Folders tree
@@ -197,19 +197,19 @@ publitio_api.list_players()
 ## Showing players
 
 ```python
-publitio_api.show_player(player_id)
+publitio_api.show_player('player_id')
 ```
 
 ## Updating players
 
 ```python
-publitio_api.update_player(player_id, skin='green')
+publitio_api.update_player('player_id', skin='green')
 ```
 
 ## Deleting players
 
 ```python
-publitio_api.delete_player(player_id)
+publitio_api.delete_player('player_id')
 ```
 
 ## Creating adtags
@@ -227,19 +227,19 @@ publitio_api.list_adtags()
 ## Showing adtags
 
 ```python
-publitio_api.show_adtag(adtag_id)
+publitio_api.show_adtag('adtag_id')
 ```
 
 ## Updating adtags
 
 ```python
-publitio_api.update_adtag(adtag_id, tag='newtag')
+publitio_api.update_adtag('adtag_id', tag='newtag')
 ```
 
 ## Deleting adtags
 
 ```python
-publitio_api.delete_adtag(adtag_id)
+publitio_api.delete_adtag('adtag_id')
 ```
 
 ## Creating a watermark
@@ -259,17 +259,17 @@ publitio_api.list_watermarks()
 ## Showing watermarks
 
 ```python
-publitio_api.show_watermark(watermark_id)
+publitio_api.show_watermark('watermark_id')
 ```
 
 ## Updating watermarks
 
 ```python
-publitio_api.update_watermark(watermark_id, position='left')
+publitio_api.update_watermark('watermark_id', position='left')
 ```
 
 ## Deleting watermarks
 
 ```python
-publitio_api.delete_watermark(watermark_id)
+publitio_api.delete_watermark('watermark_id')
 ```
